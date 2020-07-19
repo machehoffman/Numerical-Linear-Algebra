@@ -78,8 +78,9 @@ if __name__ == '__main__':
         labels_vect_list_np = np.load(lable_file)
     for i in range(len(CLASSES)):
         tmp_indices = np.argwhere(labels_vect_list_np==i)
-        a = 1
+
         sliced_feturmatrix=feature_np[np.squeeze(tmp_indices),:]
         aksvd = ksvd.ApproximateKSVD(n_components=512)
         dictionary = aksvd.fit(sliced_feturmatrix).components_ # dose not work!!!
         gamma = aksvd.transform(sliced_feturmatrix)
+        a=1
